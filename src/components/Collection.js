@@ -54,7 +54,6 @@ const CollectionPage = () => {
           <div className="">
             {CoffeeCollectionData.data.map((coffee, key) => (
               <Collection key={key} {...coffee} />
-              // <h1 className="font-bold font-3">{coffee.title}</h1>
             ))}
           </div>
         </section>
