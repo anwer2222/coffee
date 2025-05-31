@@ -35,13 +35,13 @@ const CoffeeCollectionData = {
 const Collection = ({ imageURL, title, description, altText }) => {
   return (
     <>
-      <div className="">
-        <img src={imageURL} alt={altText} width="200" height="151" />
-        <div className="">
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div>
+      <div className="flex flex-col items-center p-4">
+      <img src={imageURL} alt={altText} width="200" height="151" />
+      <div className="mt-4 text-center">
+        <h3 className="text-lg font-semibold">{title}</h3>
+        <p className="mt-2 text-sm">{description}</p>
       </div>
+    </div>
     </>
   );
 };
@@ -49,14 +49,16 @@ const Collection = ({ imageURL, title, description, altText }) => {
 const CollectionPage = () => {
   return (
     <>
-        <section className="m-22">
-          <h2 className="">Our Collection</h2>
-          <div className="">
-            {CoffeeCollectionData.data.map((coffee, key) => (
-              <Collection key={key} {...coffee} />
-            ))}
-          </div>
-        </section>
+      <section className="relative my-[120px] md:mt-[203px]">
+        <h2 className="text-[var(--xl-header-fs)] md:text-[96px] md:absolute md:left-0 md:right-0 md:top-[-70px] md:z-[-1] lg:text-[135px] lg:top-[-100px]">
+          Our Collection
+        </h2>
+        <div className="max-w-[1050px] mx-auto md:grid md:grid-cols-4 gap-4">
+          {CoffeeCollectionData.data.map((coffee, key) => (
+            <Collection key={key} {...coffee} />
+          ))}
+        </div>
+    </section>
     </>
   );
 };
